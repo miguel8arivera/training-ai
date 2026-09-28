@@ -1,0 +1,9 @@
+{
+  "name": "@expense-tracker/web",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "vitest run --passWithNoTests",
+    "typecheck": "tsc --noEmit"
+  }
+}
