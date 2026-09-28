@@ -1,0 +1,36 @@
+# Secrets and environment
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+.aws/
+credentials*.json
+
+# AI agents / MCP local config (may hold tokens or machine paths)
+.mcp.json
+.claude/settings.local.json
+.claude/*.local.*
+.atl/
+.scratch/
+
+# Dependencies and build output
+node_modules/
+dist/
+build/
+coverage/
+
+# AWS serverless build artifacts
+.aws-sam/
+cdk.out/
+.serverless/
+
+# Logs
+*.log
+npm-debug.log*
+
+# OS / editor
+.DS_Store
+.idea/
+.vscode/
+*.swp
