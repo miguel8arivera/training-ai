@@ -173,22 +173,47 @@ importers:
         specifier: ^10.11.0
         version: 10.11.0
       typescript:
-        specifier: ^6.0.3
+        specifier: ~6.0.3
         version: 6.0.3
       typescript-eslint:
         specifier: ^8.70.1
         version: 8.70.1(eslint@10.11.0)(typescript@6.0.3)
+
+  packages/api:
+    devDependencies:
+      typescript:
+        specifier: ~6.0.3
+        version: 6.0.3
       vitest:
         specifier: ^5.0.2
         version: 5.0.2(vite@8.3.1)
 
-  packages/api: {}
+  packages/domain:
+    devDependencies:
+      typescript:
+        specifier: ~6.0.3
+        version: 6.0.3
+      vitest:
+        specifier: ^5.0.2
+        version: 5.0.2(vite@8.3.1)
 
-  packages/domain: {}
+  packages/infra:
+    devDependencies:
+      typescript:
+        specifier: ~6.0.3
+        version: 6.0.3
+      vitest:
+        specifier: ^5.0.2
+        version: 5.0.2(vite@8.3.1)
 
-  packages/infra: {}
-
-  packages/web: {}
+  packages/web:
+    devDependencies:
+      typescript:
+        specifier: ~6.0.3
+        version: 6.0.3
+      vitest:
+        specifier: ^5.0.2
+        version: 5.0.2(vite@8.3.1)
 
 packages:
 

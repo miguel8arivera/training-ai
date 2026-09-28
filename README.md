@@ -25,7 +25,14 @@ pnpm typecheck   # type-check every package
 | `packages/web` | Vite + React SPA. |
 | `packages/infra` | AWS CDK app that defines the whole stack. |
 
-The domain's isolation is enforced twice: pnpm's strict `node_modules` cannot resolve dependencies the package does not declare, and an ESLint rule rejects AWS, React and cross-package imports inside `packages/domain`.
+### Keeping the domain pure
+
+Two rules keep `packages/domain` free of infrastructure:
+
+1. **Where dependencies are installed.** AWS SDKs belong to `packages/api`, React to `packages/web` and CDK to `packages/infra`, never to the root `package.json`. pnpm does not hoist a package's dependencies to the root, so the domain cannot resolve them. Anything installed at the root *is* visible to every package, so the root holds only repo-wide tooling (ESLint, TypeScript).
+2. **Lint.** An ESLint rule rejects Node built-ins, AWS, React, cross-package and dynamic imports inside `packages/domain`.
+
+Each package declares the tools it runs (`vitest`, `typescript`).
 
 ## Workflow
 
