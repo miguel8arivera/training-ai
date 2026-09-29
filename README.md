@@ -52,10 +52,10 @@ A GitHub ruleset (**Settings → Rules → Rulesets**) protects `dev`, `main` an
 
 ### Merging a pull request
 
-Auto-merge is enabled for the repo. Queue a PR to merge by itself as soon as its checks are green:
+Merging is always a manual decision by the repo owner. CI automates the checks, not the decision.
 
-```sh
-gh pr merge <number> --auto --merge
-```
+1. Open the PR and wait for **Lint, typecheck and test** to turn green.
+2. Read the diff (**Files changed**).
+3. Click **Merge** yourself.
 
-If a check fails, the PR stays open. Push a fix and it merges once the check passes.
+GitHub does not let authors approve their own PRs, so on this single-owner repo the required approvals are 0 and the manual merge click is the approval. Auto-merge (`gh pr merge --auto`) is enabled in the repo settings, but it is not part of this workflow; agents must never merge PRs or queue auto-merge.

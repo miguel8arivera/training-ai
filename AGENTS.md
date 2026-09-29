@@ -14,6 +14,7 @@ feature/* → dev → main → prod
 - `main`: release candidate; the weekly release (Fridays only) merges `dev` into `main` through a PR and tags it (`vX.Y.Z`).
 - `prod`: what is deployed; promoted from a tagged `main` through a `main → prod` PR on release day only, never committed to directly.
 - `dev`, `main` and `prod` are protected by a GitHub ruleset: no direct pushes, force pushes or deletions; every change arrives through a PR whose CI check ("Lint, typecheck and test") is green.
+- Only the repo owner merges PRs, by hand, after reading the diff. Agents may push branches and open PRs, but must never merge a PR or queue auto-merge (`gh pr merge`, including `--auto`).
 - Hotfixes branch from `main`, then merge into `main` and `dev`, and are promoted to `prod`.
 - Branch every ticket from `dev`; merge back to `dev` through a PR.
 - Branch name: `<type>/<JIRA-KEY>-<short-kebab-description>`, using the exact Jira key (no zero-padding), e.g. `feature/TIA-1-implement-login`, `fix/TIA-12-ant-expense-threshold`, `chore/TIA-7-setup-dynamodb-table`.
